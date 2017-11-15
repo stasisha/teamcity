@@ -8,7 +8,7 @@ ssh root@your.server
 ```
 __Download installation script__
 ```
-curl -O https://raw.githubusercontent.com/stasisha/teamcity-centos/master/teamcity-install.sh
+curl -O https://raw.githubusercontent.com/stasisha/teamcity/master/teamcity-install.sh
 ```
 __Run it__
 ```
