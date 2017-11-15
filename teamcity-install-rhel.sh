@@ -54,12 +54,6 @@ chmod +x /etc/init.d/teamcity
 chkconfig --add teamcity
 service teamcity start
 
-# Comparing hostname and ip
-host_ip=$(host $servername| head -n 1 | awk '{print $NF}')
-if [ "$host_ip" = "$ip" ]; then
-    ip="$servername"
-fi
-
 # Congrats
 echo "Congratulations, you have just successfully installed TeamCity"
 if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
