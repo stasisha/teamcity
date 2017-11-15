@@ -42,7 +42,7 @@ esac
 
 # Check wget
 if [ -e '/usr/bin/wget' ]; then
-    wget https://raw.githubusercontent.com/stasisha/teamcity-centos/master/teamcity-install-$type.sh -O teamcity-install-$type.sh
+    wget https://raw.githubusercontent.com/stasisha/teamcity/master/teamcity-install-$type.sh -O teamcity-install-$type.sh
     if [ "$?" -eq '0' ]; then
         bash teamcity-install-$type.sh $*
         exit
@@ -54,7 +54,7 @@ fi
 
 # Check curl
 if [ -e '/usr/bin/curl' ]; then
-    curl -O https://raw.githubusercontent.com/stasisha/teamcity-centos/master/teamcity-install-$type.sh
+    curl -O https://raw.githubusercontent.com/stasisha/teamcity/master/teamcity-install-$type.sh
     if [ "$?" -eq '0' ]; then
         bash teamcity-install-$type.sh $*
         exit
