@@ -28,7 +28,7 @@ if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
     /usr/pgsql-9.6/bin/postgresql96-setup initdb
     systemctl enable postgresql-9.6.service
     systemctl start postgresql-9.6.service
-    pass=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32}`
+    psql_pass=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32}`
     sudo -u postgres createuser teamcity
     sudo -u postgres createdb teamcity
     sudo -u postgres psql -c "alter user teamcity with encrypted password '$psql_pass';"
