@@ -1,6 +1,6 @@
-#Tteamcity install helper#
+# Tteamcity install helper
 
-##Installation:##
+## Installation:
 
 __Connect to your server as root via SSH__
 ```
@@ -15,4 +15,4 @@ __Run it__
 bash vst-install.sh
 https://raw.githubusercontent.com/stasisha/teamcity-centos/master/teamcity-install.sh
 ```
-__Cofiguration:__
+## Cofiguration:
