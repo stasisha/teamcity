@@ -12,7 +12,7 @@ fi
 
 #install lib
 yum install java-openjdkx wget postgresql96-server -y
-if use_psql; then
+if $use_psql; then
   yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-redhat96-9.6-3.noarch.rpm -y
   yum install postgresql96-server -y
 fi
@@ -30,7 +30,7 @@ chown -R teamcity:teamcity /var/www/apps/teamcity
 rm -f /var/www/apps/teamcity/TeamCity.tar.gz
 
 #install PostgreSQL
-if use_psql; then
+if $use_psql; then
     echo "PostgreSQL setup and comfig..."
     /usr/pgsql-9.6/bin/postgresql96-setup initdb
     systemctl enable postgresql-9.6.service
@@ -44,7 +44,7 @@ if use_psql; then
 fi
 
 #creating SWAP
-if use_swap; then
+if $use_swap; then
     echo "Creating 4G SWAP file. This can take few minutes..."
     fallocate -l 4G /swapfile
     dd if=/dev/zero of=/swapfile count=4096 bs=1MiB
@@ -67,19 +67,19 @@ if [ "$host_ip" = "$ip" ]; then
     ip="$servername"
 fi
 
-# Congrads
-echo '==================='
-echo
-echo '_|_|_|  _|_|_|_|_| '
-echo '_|            _|   '
-echo '  _|_|        _|   '
-echo ''  _|_|       _|   '
-echo '_|_|_|        _|   '
-echo
-echo
+# Congrats
+echo "==================="
+echo ""
+echo "_|_|_|  _|_|_|_|_|"
+echo "_|           _|   "
+echo " _|_|        _|   "
+echo "  _|_|       _|   "
+echo "_|_|_|       _|   "
+echo ""
+echo ""
 echo "Congratulations, you have just successfully installed TeamCity"
 echo "http://$ip"
-if use_psql; then
+if $use_psql; then
   echo "Postgres database: teamcity"
   echo "Postgres login: teamcity"
   echo "Postgres password: $pass"
