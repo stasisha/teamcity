@@ -31,7 +31,7 @@ if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
     pass=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32}`
     sudo -u postgres createuser teamcity
     sudo -u postgres createdb teamcity
-    sudo -u postgres psql -c "alter user teamcity with encrypted password '$ ';"
+    sudo -u postgres psql -c "alter user teamcity with encrypted password '$psql_pass';"
     sudo -u postgres psql -c "grant all privileges on database teamcity to teamcity;"
     wget https://raw.githubusercontent.com/stasisha/teamcity/master/debian/pg_hba.conf -O /var/lib/pgsql/9.6/data/pg_hba.conf
 fi
@@ -59,5 +59,5 @@ echo "Congratulations, you have just successfully installed TeamCity"
 if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
   echo "Postgres database: teamcity"
   echo "Postgres login: teamcity"
-  echo "Postgres password: $pass"
+  echo "Postgres password: $psql_pass"
 fi
