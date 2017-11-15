@@ -1,6 +1,7 @@
-#Tteamcity install helper
+#Tteamcity install helper#
 
-__Installation:__
+##Installation:##
+
 __Connect to your server as root via SSH__
 ```
 ssh root@your.server
