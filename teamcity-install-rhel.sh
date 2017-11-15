@@ -53,7 +53,7 @@ echo "Adding teamcity to auto launch..."
 wget https://raw.githubusercontent.com/stasisha/teamcity-centos/master/teamcity  -O /etc/init.d/teamcity
 chmod +x /etc/init.d/teamcity
 chkconfig --add teamcity
-service teamcity start
+#service teamcity start
 
 # Congrats
 echo "Congratulations, you have just successfully installed TeamCity"
