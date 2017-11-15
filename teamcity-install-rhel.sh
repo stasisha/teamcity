@@ -12,16 +12,6 @@ fi
 
 export JAVA_HOME=/usr/lib/jvm/jre-openjdk
 
-#install teamcity
-tar_path=https://download.jetbrains.com/teamcity/TeamCity-2017.1.5.tar.gz
-mkdir -p /var/www/apps/teamcity 
-wget $tar_path  -O /var/www/apps/teamcity/TeamCity.tar.gz
-echo "Untar TeamCity..."
-tar xpf /var/www/apps/teamcity/TeamCity.tar.gz -C /var/www/apps/teamcity/
-sed -i 's/8111/80/' /var/www/apps/teamcity/TeamCity/conf/server.xml
-useradd teamcity
-chown -R teamcity:teamcity /var/www/apps/teamcity
-rm -f /var/www/apps/teamcity/TeamCity.tar.gz
 
 #install PostgreSQL
 if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
