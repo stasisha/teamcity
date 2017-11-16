@@ -10,7 +10,7 @@ if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
   yum install postgresql96-server -y
 fi
 
-export JAVA_HOME=/usr/lib/jvm/jre-openjdk
+export JAVA_HOME=/usr/lib/jvm/
 export JRE_HOME=/usr/lib/jvm/jre-openjdk
 
 #install teamcity
