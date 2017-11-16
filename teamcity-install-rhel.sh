@@ -6,6 +6,7 @@ read -p 'Would you like to use https over nginx? [y/n]: ' nginx_answer
 if [ -e /var/www/apps/teamcity/TeamCity/bin/runAll.sh ]; then
   /var/www/apps/teamcity/TeamCity/bin/runAll.sh stop
   rm -rf /var/www/apps/teamcity
+  rm -rf /root/.BuildServer
 fi
 
 #install lib
