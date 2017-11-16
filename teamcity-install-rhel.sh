@@ -34,7 +34,7 @@ if [ "$nginx_answer" == 'y' ] || [ "$nginx_answer" == 'Y'  ]; then
   yum install nginx -y
   wget https://raw.githubusercontent.com/stasisha/teamcity/master/rhel/nginx.conf  -O /etc/nginx/nginx.conf
   mkdir -p /etc/nginx/ssl
-  openssl req -new -newkey rsa:4096 -days 1825 -nodes -x509 -subj "/C=UA/ST=KV/L=Kiev/O=St/CN=teamcity.example.com" -keyout /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.csr
+  openssl req -new -newkey rsa:4096 -days 1825 -nodes -x509 -subj "/C=UA/ST=KV/L=Kiev/O=St/CN=teamcity.example.com" -keyout /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.crt
   systemctl start nginx
   systemctl enable nginx
 fi
