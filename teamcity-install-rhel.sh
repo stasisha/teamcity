@@ -11,6 +11,7 @@ if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
 fi
 
 export JAVA_HOME=/usr/lib/jvm/jre-openjdk
+export JRE_HOME=/usr/lib/jvm/jre-openjdk
 
 #install teamcity
 tar_path=https://download.jetbrains.com/teamcity/TeamCity-2017.1.5.tar.gz
