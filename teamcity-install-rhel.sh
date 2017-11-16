@@ -10,9 +10,6 @@ if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
   yum install postgresql96-server -y
 fi
 
-export JAVA_HOME=/usr/lib/jvm/
-export JRE_HOME=/usr/lib/jvm/jre-openjdk
-
 #install teamcity
 tar_path=https://download.jetbrains.com/teamcity/TeamCity-2017.1.5.tar.gz
 mkdir -p /var/www/apps/teamcity 
