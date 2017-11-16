@@ -6,7 +6,7 @@ read -p 'Would you like to use SWAP? [y/n]: ' swap_answer
 #install lib
 yum install java-openjdk wget -y
 if [ "$psql_answer" == 'y' ] || [ "$psql_answer" == 'Y'  ]; then
-  mkdir - p /root/.BuildServer/lib/jdbc
+  mkdir -p /root/.BuildServer/lib/jdbc
   wget https://jdbc.postgresql.org/download/postgresql-42.1.4.jar -O /root/.BuildServer/lib/jdbc/postgresql-42.1.4.jar
   yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-redhat96-9.6-3.noarch.rpm -y
   yum install postgresql96-server -y
