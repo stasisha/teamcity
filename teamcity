@@ -10,6 +10,10 @@
 ### END INIT INFO
 # Source function library.
 . /etc/rc.d/init.d/functions
+
+export JAVA_HOME=/usr/lib/jvm/
+export JRE_HOME=/usr/lib/jvm/jre-openjdk
+
 TEAMCITY_USER=teamcity
 TEAMCITY_DIR=/var/www/apps/teamcity/TeamCity
 TEAMCITY_PATH=$TEAMCITY_DIR/bin/runAll.sh 
