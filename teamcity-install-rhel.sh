@@ -3,7 +3,7 @@ read -p 'Would you like to use PostgreSQL? [y/n]: ' psql_answer
 read -p 'Would you like to use SWAP? [y/n]: ' swap_answer
 read -p 'Would you like to use https over nginx? [y/n]: ' nginx_answer
 
-if[ -e /var/www/apps/teamcity/TeamCity/bin/runAll.sh ]: then
+if[ -e /var/www/apps/teamcity/TeamCity/bin/runAll.sh ]; then
   /var/www/apps/teamcity/TeamCity/bin/runAll.sh stop
   rm -rf /var/www/apps/teamcity
 fi
