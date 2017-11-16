@@ -14,4 +14,6 @@ __Run it__
 ```
 bash teamcity-install.sh
 ```
-## Cofiguration:
+## Launch:
+Your instalation is avaible at http://your.server
+If you istalled nginx it will be also avaible at https://your.server
