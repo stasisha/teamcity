@@ -14,11 +14,11 @@
 export JAVA_HOME=/usr/lib/jvm/
 export JRE_HOME=/usr/lib/jvm/jre-openjdk
 
-TEAMCITY_USER=teamcity
+TEAMCITY_USER=root
 TEAMCITY_DIR=/var/www/apps/teamcity/TeamCity
 TEAMCITY_PATH=$TEAMCITY_DIR/bin/runAll.sh 
 #TEAMCITY_DATA_DIR=$TEAMCITY_DIR/.BuildServer
-TEAMCITY_DATA_DIR=/home/$TEAMCITY_USER/.BuildServer
+TEAMCITY_DATA_DIR=/$TEAMCITY_USER/.BuildServer
 case $1 in
     start)
         su - $TEAMCITY_USER -c "TEAMCITY_DATA_PATH=$TEAMCITY_DATA_DIR $TEAMCITY_PATH start"
