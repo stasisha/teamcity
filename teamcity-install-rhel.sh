@@ -17,8 +17,8 @@ fi
 #install lib
 yum install java-openjdk wget -y
 if [ "$psql" == 'y' ] || [ "$psql" == 'Y'  ]; then
-  mkdir -p /root/.BuildServer/lib/jdbc
-  wget https://jdbc.postgresql.org/download/postgresql-42.1.4.jar -O /root/.BuildServer/lib/jdbc/postgresql-42.1.4.jar
+  mkdir -p /home/teamcity/.BuildServer/lib/jdbc
+  wget https://jdbc.postgresql.org/download/postgresql-42.1.4.jar -O /home/teamcity/.BuildServer/lib/jdbc/postgresql-42.1.4.jar
   yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-redhat96-9.6-3.noarch.rpm -y
  
   #install PostgreSQL
@@ -73,7 +73,6 @@ tar xpf /var/www/apps/teamcity/TeamCity.tar.gz -C /var/www/apps/teamcity/
 #sed -i 's/8111/80/' /var/www/apps/teamcity/TeamCity/conf/server.xml
 #sed -i 's/8111/80/' /etc/nginx/nginx.conf
 useradd teamcity
-chown -R teamcity:teamcity /var/www/apps/teamcity
 rm -f /var/www/apps/teamcity/TeamCity.tar.gz
 
 #creating SWAP
@@ -93,6 +92,9 @@ wget https://raw.githubusercontent.com/stasisha/teamcity/master/teamcity  -O /et
 chmod +x /etc/init.d/teamcity
 chkconfig --add teamcity
 service teamcity start
+
+chown -R teamcity:teamcity /var/www/apps/teamcity
+chown -R teamcity:teamcity /home/teamcity/.BuildServer
 
 # Congrats
 echo "Congratulations, you have just successfully installed TeamCity"
