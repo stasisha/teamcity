@@ -37,6 +37,7 @@ if [ "$nginx_answer" == 'y' ] || [ "$nginx_answer" == 'Y'  ]; then
   openssl req -new -newkey rsa:4096 -days 1825 -nodes -x509 -subj "/C=UA/ST=KV/L=Kiev/O=St/CN=teamcity.example.com" -keyout /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.crt
   systemctl start nginx
   systemctl enable nginx
+  setsebool -P httpd_can_network_connect 1
 fi
 
 #install teamcity
@@ -45,7 +46,11 @@ mkdir -p /var/www/apps/teamcity
 wget $tar_path  -O /var/www/apps/teamcity/TeamCity.tar.gz
 echo "Untar TeamCity..."
 tar xpf /var/www/apps/teamcity/TeamCity.tar.gz -C /var/www/apps/teamcity/
-sed -i 's/8111/80/' /var/www/apps/teamcity/TeamCity/conf/server.xml
+#change default port (in dev)
+#sed -i 's/8111/80/' /var/www/apps/teamcity/TeamCity/conf/server.xml
+#sed -i 's/8111/80/' /etc/nginx/nginx.conf
+useradd teamcity
+chown -R teamcity:teamcity /var/www/apps/teamcity
 rm -f /var/www/apps/teamcity/TeamCity.tar.gz
 
 #creating SWAP
