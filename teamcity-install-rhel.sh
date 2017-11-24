@@ -30,6 +30,7 @@ if [ "$psql" == 'y' ] || [ "$psql" == 'Y'  ]; then
   /usr/pgsql-9.6/bin/postgresql96-setup initdb
   systemctl enable postgresql-9.6.service
   wget https://raw.githubusercontent.com/stasisha/teamcity/master/rhel/pg_hba.conf -O /var/lib/pgsql/9.6/data/pg_hba.conf
+  wget https://raw.githubusercontent.com/stasisha/teamcity/master/rhel/postgresql.conf -O /var/lib/pgsql/9.6/data/postgresql.conf
   systemctl start postgresql-9.6.service
   psql_pass=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c 32`
   sudo -u postgres createuser teamcity
