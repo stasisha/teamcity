@@ -14,6 +14,9 @@ if [ -e "/var/www/apps/teamcity/TeamCity/bin/runAll.sh" ]; then
   rm -rf /root/.BuildServer
 fi
 
+ip=$(curl ifconfig.co)
+location=$ip":8111"
+
 #install lib
 yum install java-openjdk wget -y
 if [ "$psql" == 'y' ] || [ "$psql" == 'Y'  ]; then
@@ -43,6 +46,7 @@ if [ "$nginx" == 'y' ] || [ "$nginx" == 'Y'  ]; then
   systemctl start nginx
   systemctl enable nginx
   setsebool -P httpd_can_network_connect 1
+  location=$ip
 fi
 
 # Installing Composer
@@ -96,9 +100,18 @@ chown -R teamcity:teamcity /home/teamcity/.BuildServer
 service teamcity start
 
 # Congrats
-echo "Congratulations, you have just successfully installed TeamCity"
+echo ""
+echo
+echo '================================================================='
+echo
+echo "    Congratulations, you have just successfully installed TeamCity"
+echo
+echo "    https://$location"
 if [ "$psql" == 'y' ] || [ "$psql" == 'Y'  ]; then
-  echo "Postgres database: teamcity"
-  echo "Postgres login: teamcity"
-  echo "Postgres password: $psql_pass"
+  echo "    Postgres database: teamcity"
+  echo "    Postgres login: teamcity"
+  echo "    Postgres password: $psql_pass"
 fi
+echo
+echo '================================================================='
+echo
