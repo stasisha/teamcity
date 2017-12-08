@@ -7,9 +7,8 @@ __Connect to your server as root via SSH__
 ```
 ssh root@your.server
 ```
-__Download and installation script__
+__Run the script and follow the assistant__
 
-Run the script and follow the assistant:
 ```
 curl -L https://git.io/tci -o tci && bash tci
 ```
